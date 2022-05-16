@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express()
 const { exec } = require('child_process')
 app.use(cors())
+app.use(express.json())
 
 const server = require('http').createServer(app)
 
@@ -46,7 +47,9 @@ io.on('connection', (socket) => {
 })
 
 
-app.get('/', (req, res) => res.send('to aqui'))
+app.get('/', (req, res) => res.send("resposta 1"))
+app.get('/2', (req, res) => res.send("resposta 2"))
+app.get('/3', (req, res) => res.send("resposta 3"))
 
 server.listen(3001, () => {
   console.log('Server Started on por 3001')
